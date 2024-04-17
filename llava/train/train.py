@@ -14,7 +14,7 @@
 #    See the License for the specific language governing permissions and
 #    limitations under the License.
 
-from llava.data.data_blending import make_supervised_data_module
+from llava.data.data import make_supervised_data_module
 from packaging import version
 import os
 import copy

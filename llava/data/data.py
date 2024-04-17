@@ -582,7 +582,6 @@ def build_interleaved_dataset(tokenizer: transformers.PreTrainedTokenizer,
                               data_args,
                               dataset_names: str):
 
-    dataset_names = dataset_names.split(',')
     data_list = []
     print(dataset_names)
     for dataset_name in dataset_names:

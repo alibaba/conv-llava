@@ -7,4 +7,8 @@ We evaluate the models with scripts in [evaluation.sh](scripts/evaluation.sh). Y
 ```bash
 eval_dataset="MMVet" # need openai api key
 eval_dataset="MME MMBench_DEV_EN"
+
+set the llava-path to the actual path of your convllava checkpoint
 ```
+
+We would contribute the VLMEVALKIT to support our model soon. 

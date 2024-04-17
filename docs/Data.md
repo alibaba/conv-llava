@@ -2,28 +2,92 @@
 
 | Data file name | Size |
 | --- | ---: |
-| [llava_instruct_150k.json](https://huggingface.co/datasets/liuhaotian/LLaVA-Instruct-150K/blob/main/llava_instruct_150k.json) | 229 MB |
-| [llava_instruct_80k.json](https://huggingface.co/datasets/liuhaotian/LLaVA-Instruct-150K/blob/main/llava_instruct_80k.json) | 229 MB |
-| [conversation_58k.json](https://huggingface.co/datasets/liuhaotian/LLaVA-Instruct-150K/blob/main/conversation_58k.json) | 126 MB |
-| [detail_23k.json](https://huggingface.co/datasets/liuhaotian/LLaVA-Instruct-150K/blob/main/detail_23k.json) | 20.5 MB |
-| [complex_reasoning_77k.json](https://huggingface.co/datasets/liuhaotian/LLaVA-Instruct-150K/blob/main/complex_reasoning_77k.json) | 79.6 MB |
+| [sharegpt4v_instruct_gpt4-vision_cap100k.json](https://huggingface.co/datasets/Lin-Chen/ShareGPT4V/blob/main/sharegpt4v_instruct_gpt4-vision_cap100k.json) | 134 MB |
+| [share-captioner_coco_lcs_sam_1246k_1107.json](https://huggingface.co/datasets/Lin-Chen/ShareGPT4V/blob/main/share-captioner_coco_lcs_sam_1246k_1107.json) | 1.5 GB |
+| [sharegpt4v_mix665k_cap23k_coco-ap9k_lcs3k_sam9k_div2k.json](https://huggingface.co/datasets/Lin-Chen/ShareGPT4V/blob/main/sharegpt4v_mix665k_cap23k_coco-ap9k_lcs3k_sam9k_div2k.json) | 1.2 GB |
 
-### Pretraining Dataset
-The pretraining dataset used in this release is a subset of CC-3M dataset, filtered with a more balanced concept coverage distribution.  Please see [here](https://huggingface.co/datasets/liuhaotian/LLaVA-CC3M-Pretrain-595K) for a detailed description of the dataset structure and how to download the images.
+### Projector Initialzation
 
-If you already have CC-3M dataset on your disk, the image names follow this format: `GCC_train_000000000.jpg`.  You may edit the `image` field correspondingly if necessary.
+We use captions from ShareGPT4V-PT, ShareGPT4V, ALLAVA.
 
-| Data | Chat File | Meta Data | Size |
-| --- |  --- |  --- | ---: |
-| CC-3M Concept-balanced 595K | [chat.json](https://huggingface.co/datasets/liuhaotian/LLaVA-CC3M-Pretrain-595K/blob/main/chat.json) | [metadata.json](https://huggingface.co/datasets/liuhaotian/LLaVA-CC3M-Pretrain-595K/blob/main/metadata.json) | 211 MB
-| LAION/CC/SBU BLIP-Caption Concept-balanced 558K | [blip_laion_cc_sbu_558k.json](https://huggingface.co/datasets/liuhaotian/LLaVA-Pretrain/blob/main/blip_laion_cc_sbu_558k.json) | [metadata.json](#) | 181 MB
+### Vision Language Pretraining
 
-**Important notice**: Upon the request from the community, as ~15% images of the original CC-3M dataset are no longer accessible, we upload [`images.zip`](https://huggingface.co/datasets/liuhaotian/LLaVA-CC3M-Pretrain-595K/blob/main/images.zip) for better reproducing our work in research community. It must not be used for any other purposes. The use of these images must comply with the CC-3M license. This may be taken down at any time when requested by the original CC-3M dataset owner or owners of the referenced images.
+We use ShareGPT4V-PT, ShareGPT4V, ALLAVA and a part of VFLAN.
 
-### GPT-4 Prompts
+### Instrcution Tuning
 
-We provide our prompts and few-shot samples for GPT-4 queries, to better facilitate research in this domain.  Please check out the [`prompts`](https://github.com/haotian-liu/LLaVA/tree/main/playground/data/prompts) folder for three kinds of questions: conversation, detail description, and complex reasoning.
+We use LLaVA-1.5 sft 665k dataset. We would release the results when LLaVA-NExT released.
 
-They are organized in a format of `system_message.txt` for system message, pairs of `abc_caps.txt` for few-shot sample user input, and `abc_conv.txt` for few-shot sample reference output.
+### Prepare Images
 
-Note that you may find them in different format. For example, `conversation` is in `jsonl`, and detail description is answer-only.  The selected format in our preliminary experiments works slightly better than a limited set of alternatives that we tried: `jsonl`, more natural format, answer-only.  If interested, you may try other variants or conduct more careful study in this.  Contributions are welcomed!
+First, download all images and instrcution files.
+
+- ALLaVA: [images](https://huggingface.co/datasets/FreedomIntelligence/ALLaVA-4V)
+- COCO: [train2017](http://images.cocodataset.org/zips/train2017.zip)
+- LLaVA: [llava](https://huggingface.co/datasets/liuhaotian/LLaVA-Instruct-150K)
+- WebData: [images](https://drive.google.com/drive/folders/1tCUQ-sq6vdshZVkF0ZeF3K4eztkXJgax?usp=sharing). Only for academic usage.
+- SAM: [images](https://ai.meta.com/datasets/segment-anything-downloads/). We only use 000000~000050.tar for now. If you find it is slow for you to donnload in China, please refer to [opendatalab](https://opendatalab.com/OpenDataLab/SA-1B) to download it.
+- GQA: [images](https://downloads.cs.stanford.edu/nlp/data/gqa/images.zip)
+- OCR-VQA: [download script](https://drive.google.com/drive/folders/1_GYPY5UkUy7HIcR0zq3ZCFgeZN7BAfm_?usp=sharing). We save all files as `.jpg`
+- TextVQA: [trainvalimages](https://dl.fbaipublicfiles.com/textvqa/images/train_val_images.zip)
+- VisualGenome: [part1](https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip), [part2](https://cs.stanford.edu/people/rak248/VG_100K_2/images2.zip)
+- vflan: [vflan](https://huggingface.co/datasets/Vision-Flan/vision-flan_191-task_1k)
+
+Then, organize the data as follows:
+
+```none
+ShareGPT4V
+├── ...
+├── data
+│   ├── allava
+│   │   ├── allava_laion
+│   │   │   ├── images
+│   │   │   ├── ALLaVA-Caption-LAION-4V.json
+│   │   │   ├── ALLaVA-Instruct-LAION-4V.json
+│   │   ├── allava_vflan
+│   │   │   ├── ALLaVA-Caption-VFLAN-4V.json
+│   │   │   ├── ALLaVA-Instruct-VFLAN-4V.json
+│   ├── coco
+│   │   ├── train2017
+│   ├── llava
+│   │   ├── llava_v1_5_mix665k.json
+│   ├── sam
+│   │   ├── images
+│   ├── gqa
+│   │   ├── images
+│   ├── ocr_vqa
+│   │   ├── images
+│   ├── textvqa
+│   │   ├── train_images
+│   ├── vg
+│   │   ├── VG_100K
+│   │   ├── VG_100K_2
+│   ├── vflan
+│   │   ├── images_191task_1k
+│   │   ├── annotation_191-task_1k.json
+│   ├── sharegpt4v
+│   │   ├── share-captioner_coco_lcs_sam_1246k_1107.json
+│   │   ├── sharegpt4v_instruct_gpt4-vision_cap100k.json
+│   ├── share_textvqa
+│   │   ├── images
+│   ├── web-celebrity
+│   │   ├── images
+│   ├── web-landmark
+│   │   ├── images
+│   ├── wikiart
+│   │   ├── images
+├── ...
+```
+
+### Data Configuration
+
+You could modify the file [data.py](conv-llava/llava/data/data_blending.py) to add the datasets. Replace with the true path:
+
+```python
+def build_sharegpt4v(tokenizer, data_args):
+    data_path = 'path_to_sharegpt4v_pt.json'
+    image_folder = 'folder_to_sharegpt4v_pt'
+    dataset = SampleDataset(data_path, tokenizer, data_args,
+                            image_folder)
+    return dataset
+```
