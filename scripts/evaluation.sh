@@ -18,3 +18,4 @@ torchrun --nproc-per-node=${gpu} llava/eval/run.py \
     --work-dir ${work_dir}/vlmeval \
     --llava-path=${llava_path} > ./eval-${time}.log 2>&1
 
+/mnt/public/model/convllava/sft-768
