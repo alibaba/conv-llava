@@ -34,15 +34,12 @@ from transformers.utils import logging
 import tokenizers
 from llava.constants import IGNORE_INDEX, IMAGE_TOKEN_INDEX, DEFAULT_IMAGE_TOKEN, DEFAULT_IM_START_TOKEN, DEFAULT_IM_END_TOKEN
 from torch.utils.data import Dataset
-from llava.train.llava_trainer import LLaVATrainer
 
 from llava import conversation as conversation_lib
 from llava.model import *
 from llava.mm_utils import tokenizer_image_token
 
 from PIL import Image
-from datasets import interleave_datasets
-from transformers import CLIPImageProcessor
 
 local_rank = None
 

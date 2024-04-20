@@ -1,7 +1,7 @@
 export LMUData=path_to_your_saved_data
 export OMP_NUM_THREADS=1
 
-eval_dataset="MMVet"
+eval_dataset="MMBench_DEV_EN"
 
 llava_path=path_to_your_weights
 
@@ -16,6 +16,6 @@ torchrun --nproc-per-node=${gpu} llava/eval/run.py \
     --model llava_v1.5_7b \
     --verbose \
     --work-dir ${work_dir}/vlmeval \
-    --llava-path=${llava_path} > ./eval-${time}.log 2>&1
+    --llava-path=${llava_path}
 
-/mnt/public/model/convllava/sft-768
+
