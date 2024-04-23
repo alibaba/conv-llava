@@ -1,11 +1,11 @@
 #!/bin/bash
 
-deepspeed train/train.py \
+deepspeed llava/train/train.py \
     --deepspeed ./scripts/zero2.json \
     --model_name_or_path lmsys/vicuna-7b-v1.5 \
     --version v1 \
     --dataset "dataset_you_want_train" \
-    --vision_tower openai/clip-vit-large-patch14-336 \
+    --vision_tower path_to_convnext \
     --mm_vision_resolution 768 \
     --mm_projector_type mlp2x_gelu \
     --freeze_backbone True \
@@ -15,7 +15,7 @@ deepspeed train/train.py \
     --mm_use_im_start_end False \
     --mm_use_im_patch_token False \
     --bf16 True \
-    --output_dir ./checkpoints/llava-v1.5-13b-pretrain \
+    --output_dir ./checkpoints/convllava/stage1 \
     --num_train_epochs 1 \
     --per_device_train_batch_size 32 \
     --per_device_eval_batch_size 4 \
@@ -36,4 +36,4 @@ deepspeed train/train.py \
     --gradient_checkpointing True \
     --dataloader_num_workers 4 \
     --lazy_preprocess True \
-    --report_to none
+    --report_to wandb

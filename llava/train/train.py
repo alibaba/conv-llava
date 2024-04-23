@@ -337,7 +337,6 @@ def train(attn_implementation=None):
     print(f'data args is {data_args}')
 
     os.makedirs(training_args.output_dir, exist_ok=True)
-    print(f'model args resume path is {model_args.resume_path}')
 
     bnb_model_from_pretrained_args = {}
     if training_args.bits in [4, 8]:
@@ -527,4 +526,4 @@ def train(attn_implementation=None):
 
 
 if __name__ == "__main__":
-    train(attn_implementation=flash_attn_use)
+    train(attn_implementation="flash_attention_2")

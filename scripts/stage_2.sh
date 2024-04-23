@@ -1,20 +1,18 @@
 #!/bin/bash
 
-deepspeed llava/train/train_mem.py \
-    --deepspeed ./scripts/zero2.json \
-    --model_name_or_path lmsys/vicuna-13b-v1.5 \
-    --dataset ${dataset} \
+deepspeed llava/train/train.py \
+    --deepspeed ./scripts/zero3.json \
+    --model_name_or_path path_to_stage1_llm \
     --version v1 \
+    --dataset "dataset_you_want_train" \
+    --vision_tower path_to_pretrained_convnext\
     --mm_projector_type mlp2x_gelu \
-    --vision_tower="${vision_tower}" \
-    --image_aspect_ratio pad \
-    --group_by_modality_length True \
-    --mm_vision_resolution ${resolution} \
+    --mm_vision_resolution 768 \
     --mm_vision_select_layer -1 \
     --mm_use_im_start_end False \
     --mm_use_im_patch_token False \
     --bf16 True \
-    --output_dir ./checkpoints/llava-v1.5-13b-pretrain \
+    --output_dir ./checkpoints/convllava \
     --tune_vision_tower True \
     --tune_vit_from_layer 2 \
     --tune_entire_model False \
@@ -22,6 +20,8 @@ deepspeed llava/train/train_mem.py \
     --per_device_train_batch_size 32 \
     --per_device_eval_batch_size 4 \
     --gradient_accumulation_steps 1 \
+    --image_aspect_ratio pad \
+    --group_by_modality_length True \
     --evaluation_strategy "no" \
     --save_strategy "steps" \
     --save_steps 24000 \

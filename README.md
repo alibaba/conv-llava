@@ -1,12 +1,12 @@
 # ConvLLaVA: Hierarchical Backbones as Visual Encoder for Large Multimodal Models
 
 **ConvLLaVA: Hierarchical Backbones as Visual Encoder for Large Multimodal Models**
-[paper]() [coda]() 
+[paper]() [code](https://github.com/alibaba/conv-llava)
 
 Chunjiang Ge, Sijie Cheng, Ziming Wang, Jiale Yuan, Yuan Gao, Jun Song, Shiji Song, Gao Huang, Bo Zheng
 
 ## Release
-- [04/17] Our code and paper are released. 
+- [04/17] Our code is released.
 
 
 [![Code License](https://img.shields.io/badge/Code%20License-Apache_2.0-green.svg)](https://github.com/tatsu-lab/stanford_alpaca/blob/main/LICENSE)

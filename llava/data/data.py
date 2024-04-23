@@ -14,23 +14,18 @@
 #    See the License for the specific language governing permissions and
 #    limitations under the License.
 
-import subprocess
 from packaging import version
 import os
 import copy
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 import json
-import logging
-import pathlib
+
 from typing import Dict, Optional, Sequence, List
 import numpy as np
-
-from torch.utils.data import ConcatDataset
-from tqdm import tqdm
 import torch
 
 import transformers
-from transformers.utils import logging
+
 import tokenizers
 from llava.constants import IGNORE_INDEX, IMAGE_TOKEN_INDEX, DEFAULT_IMAGE_TOKEN, DEFAULT_IM_START_TOKEN, DEFAULT_IM_END_TOKEN
 from torch.utils.data import Dataset
@@ -40,6 +35,7 @@ from llava.model import *
 from llava.mm_utils import tokenizer_image_token
 
 from PIL import Image
+
 
 local_rank = None
 
@@ -339,7 +335,7 @@ class LazySupervisedDataset(Dataset):
         self.tokenizer = tokenizer
         self.list_data_dict = list_data_dict
         self.data_args = data_args
-        self.image_folder = self.data_args.image_folder
+
 
     def __len__(self):
         return len(self.list_data_dict)
@@ -432,15 +428,8 @@ class SampleDataset(LazySupervisedDataset):
     def __init__(self, data_path: str,
                  tokenizer: transformers.PreTrainedTokenizer,
                  data_args,
-                 image_folder: str,
-                 sample_size: int = 0,
-                 shuffle: bool = False):
+                 image_folder: str):
         super(SampleDataset, self).__init__(data_path, tokenizer, data_args)
-        if shuffle:
-            np.random.shuffle(self.list_data_dict)
-        if sample_size != 0:
-            if sample_size < len(self.list_data_dict):
-                self.list_data_dict = self.list_data_dict[:sample_size]
 
         rank0_print("Formatting inputs...Skip in lazy mode")
         self.tokenizer = tokenizer
@@ -580,6 +569,7 @@ def build_interleaved_dataset(tokenizer: transformers.PreTrainedTokenizer,
                               dataset_names: str):
 
     data_list = []
+    dataset_names = dataset_names.split(",")
     print(dataset_names)
     for dataset_name in dataset_names:
         if dataset_name == 'lcs':
