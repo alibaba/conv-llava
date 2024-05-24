@@ -5,10 +5,10 @@
         <img src="https://img.shields.io/badge/arXiv-b31b1b.svg">
     </a>
         <a href=""> 
-        <img src="https://img.shields.io/badge/Huggingface-ffd21e.svg">
+        <img src="https://img.shields.io/badge/Huggingface-b31b1b.svg">
     </a>
-        <a href="https://modelscope.cn/organization/ConvLLaVA?tab=model"> 
-        <img src="https://img.shields.io/badge/ModelScope-5f4cf2.svg">
+        <a href=""> 
+        <img src="https://img.shields.io/badge/ModelScope-b31b1b.svg">
     </a>
     <a href="https://github.com/alibaba/conv-llava/stargazers">
         <img alt="GitHub stars" src="https://img.shields.io/github/stars/alibaba/conv-llava?color=ccf" />
@@ -104,7 +104,7 @@ Our base model Vicuna v1.5, which is an instruction-tuned chatbot, will be downl
 
 ## Evaluation
 
-We support VLMEVALKIT and lmms-eval to evaluate our model now. See [Evaluation.md](conv-llava/docs/Evaluation.md) for more details.
+We use VLMEVALKIT to evaluate our model now. See [Evaluation.md](conv-llava/docs/Evaluation.md) for more details.
 
 ## Citation
 

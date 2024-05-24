@@ -364,6 +364,16 @@ def train(attn_implementation=None):
             torch_dtype=(torch.bfloat16 if training_args.bf16 else None),
             # **bnb_model_from_pretrained_args
         )
+    
+    from transformers import GenerationConfig
+    config_dict = {
+        "bos_token_id": 1,
+        "eos_token_id": 2,
+        "max_length": 4096,
+        "pad_token_id": 0,
+        "transformers_version": "4.31.0"
+    }
+    model.generation_config = GenerationConfig.from_dict(config_dict)
 
     model.config.use_cache = False
     # 根据需要冻结模型的部分参数。
