@@ -1,12 +1,17 @@
-# ConvLLaVA: Hierarchical Backbones as Visual Encoder for Large Multimodal Models
+<div align="center">
+
+<h2><a href="https://github.com/alibaba/conv-llava">ConvLLaVA: Hierarchical Backbones as Visual Encoder for Large Multimodal Models</a></h2>
+
+[Chunjiang Ge](https://john-ge.github.io/), [Sijie Cheng](https://adacheng.github.io/), Ziming Wang, Jiale Yuan, Yuan Gao, Jun Song, Shiji Song, [Gao Huang](https://www.gaohuang.net/), Bo Zheng
+
+</div>
 
 <p align="center">
     <a href="https://arxiv.org/abs/"> 
         <img src="https://img.shields.io/badge/arXiv-b31b1b.svg">
     </a>
         <a href=""> 
-        <img src="https://img.shields.io/badge/Huggingface-ffd21e.svg">
-    </a>
+        <img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-ffd21e">
         <a href="https://modelscope.cn/organization/ConvLLaVA?tab=model"> 
         <img src="https://img.shields.io/badge/ModelScope-5f4cf2.svg">
     </a>
@@ -16,11 +21,6 @@
 </p>
 
 <!-- <span>[ English | <a href="README_zh.md">中文</a> ]</span> -->
-
-**ConvLLaVA: Hierarchical Backbones as Visual Encoder for Large Multimodal Models**
-[[paper[]]() [[code]](https://github.com/alibaba/conv-llava)
-
-[Chunjiang Ge](https://john-ge.github.io/), [Sijie Cheng](https://adacheng.github.io/), Ziming Wang, Jiale Yuan, Yuan Gao, Jun Song, Shiji Song, Gao Huang, Bo Zheng
 
 ## Overview
 
@@ -63,8 +63,8 @@ cd conv-llava
 
 1. Install Package
 ```Shell
-conda create -n llava python=3.10 -y
-conda activate llava
+conda create -n convllava python=3.10 -y
+conda activate convllava
 pip install --upgrade pip  # enable PEP 660 support
 pip install -e .
 ```
@@ -75,9 +75,13 @@ pip install -e ".[train]"
 pip install flash-attn --no-build-isolation
 ```
 
+## Model Zoo
 
-## LLaVA Weights
-Please check out our [Model Zoo]() for all public LLaVA checkpoints, and the instructions of how to use the weights.
+Please check out our [Model Zoo](https://github.com/alibaba/conv-llava/blob/main/docs/model_zoo.md) for all public ConvLLaVA checkpoints, and the instructions of how to use the weights.
+
+## Dataset
+
+Data we use is introduded in [Data.md](https://github.com/alibaba/conv-llava/blob/main/docs/Data.md).
 
 ## Train
 
