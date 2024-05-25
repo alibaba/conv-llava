@@ -30,6 +30,8 @@
 
 <div align="center">
   <img src="asset/method.png" width=600" />
+</div>
+<div align="center">
   <figcaption>Comparison between LLaVA and ConvLLaVA.</figcaption>
 </div>
 
