@@ -157,7 +157,7 @@ The three stages training scripts are listed below:
 
 ### Customize training
 
-If you want to custimze your model, you can directly load the **second stage pretrained visual encoder and LLM** for instruction tuning. It takes about 6 hours to train the 768 resolution model with LLaVA-Instruct-665k on 8 A800 GPUs.
+If you want to custimze your model, you can directly load the **second stage pretrained visual encoder and LLM** for instruction tuning. It takes about 5 hours to train the 768 resolution model with LLaVA-Instruct-665k on a single 8 A800 GPUs.
 
 ### Training from scratch
 

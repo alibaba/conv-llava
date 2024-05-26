@@ -95,7 +95,7 @@ pip install flash-attn --no-build-isolation
 
 ## 模型库
 
-我们的模型的性能如下：
+我们的模型的在一些测试基准上的性能如下：
 
 <table class="tg"><thead>
   <tr>
@@ -230,11 +230,11 @@ pip install flash-attn --no-build-isolation
   </tr>
 </tbody></table>
 
-我们的 [Model Zoo](https://github.com/alibaba/conv-llava/blob/main/docs/Model_zoo.md) 中包含了所有的checkpoint，并有说明如何使用这些权重。
+我们的 [Model Zoo](https://github.com/alibaba/conv-llava/blob/main/docs/Model_zoo.md) 中包含了主要的权重和下载方式，并有说明如何使用这些权重。
 
 ## 数据集
 
-我们实验用到的数据在 in [Data.md](https://github.com/alibaba/conv-llava/blob/main/docs/Data.md) 中有介绍。
+我们实验用到的数据在 [Data.md](https://github.com/alibaba/conv-llava/blob/main/docs/Data.md) 中有介绍。
 
 ## 训练
 
@@ -257,7 +257,7 @@ pip install flash-attn --no-build-isolation
 
 ## 评测
 
-我们目前支持 [VLMEVALKIT](https://github.com/open-compass/VLMEvalKit) 和 [lmms-eval](https://github.com/EvolvingLMMs-Lab/lmms-eval) 来测试模型。请看 [Evaluation.md](https://github.com/alibaba/conv-llava/docs/Evaluation.md) 了解更多细节.
+我们目前支持 [VLMEVALKIT](https://github.com/open-compass/VLMEvalKit) 和 [lmms-eval](https://github.com/EvolvingLMMs-Lab/lmms-eval) 来测试模型。请看 [Evaluation.md](https://github.com/alibaba/conv-llava/blob/main/docs/Evaluation.md) 了解更多细节.
 
 ## 引用
 

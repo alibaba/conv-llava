@@ -262,7 +262,7 @@ The training scripts are in the [scripts](https://github.com/alibaba/conv-llava/
 
 ## Evaluation
 
-We support [VLMEVALKIT](https://github.com/open-compass/VLMEvalKit) and [lmms-eval](https://github.com/EvolvingLMMs-Lab/lmms-eval) to evaluate our model now. See [Evaluation.md](https://github.com/alibaba/conv-llava/docs/Evaluation.md) for more details.
+We support [VLMEVALKIT](https://github.com/open-compass/VLMEvalKit) and [lmms-eval](https://github.com/EvolvingLMMs-Lab/lmms-eval) to evaluate our model now. See [Evaluation.md](https://github.com/alibaba/conv-llava/blob/main/docs/Evaluation.md) for more details.
 
 ## Citation
 
