@@ -26,9 +26,6 @@ dependencies = [
 train = ["deepspeed==0.13.1", "ninja", "wandb"]
 build = ["build", "twine"]
 
-[project.urls]
-"Homepage" = "https://convllava.github.io/"
-
 [tool.setuptools.packages.find]
 exclude = ["assets*", "benchmark*", "docs", "dist*", "playground*", "scripts*", "tests*"]
 

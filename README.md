@@ -2,7 +2,9 @@
 
 <h2><a href="https://github.com/alibaba/conv-llava">ConvLLaVA: Hierarchical Backbones as Visual Encoder for Large Multimodal Models</a></h2>
 
-[Chunjiang Ge](https://john-ge.github.io/), [Sijie Cheng](https://adacheng.github.io/), Ziming Wang, Jiale Yuan, Yuan Gao, Jun Song, Shiji Song, [Gao Huang](https://www.gaohuang.net/), Bo Zheng
+[Chunjiang Ge](https://john-ge.github.io/), [Sijie Cheng](https://adacheng.github.io/), Ziming Wang, Jiale Yuan, Yuan Gao
+
+Jun Song, Shiji Song, [Gao Huang](https://www.gaohuang.net/), Bo Zheng
 
 </div>
 
@@ -26,7 +28,14 @@
 
 <!-- <span>[ English | <a href="README_zh.md">中文</a> ]</span> -->
 
-## Overview
+## Abstract
+
+High-resolution Large Multimodel Models (LMM) encounter the challenges of excessive visual tokens and quadratic visual complexity. Current high-resolution LMMs commonly address the quadratic complexity through image cropping, neglecting the redundancy in visual tokens. Since the excessive tokens lead to substantial computational costs, it is a more fundamental issue. To mitigate this, we propose ConvLLaVA, which employs ConvNeXt, a hierarchical backbone, as the visual encoder of LMM to replace Vision Transformer (ViT). **ConvLLaVA compresses high-resolution images into information-rich visual features, effectively avoiding the generation of excessive visual tokens.** To enhance the capabilities of ConvLLaVA, we propose two critical optimizations.
+
+- Since the low-resolution pretrained ConvNeXt underperforms when directly applied on high resolution, we **update** it to merge the gap.
+- Furthermore, since ConvNeXt's original compression ratio is insufficient for much higher resolution inputs, we train a **successive stage** to further compress the visual tokens, effectively reducing redundancy.
+
+**These optimizations enable ConvLLaVA to support inputs of 1536x1536 resolution while generating only 576 visual tokens, accommodating images of arbitrary aspect ratios.** [Experimental results](#model-zoo) demonstrate that our method achieves competitive performance with state-of-the-art models on mainstream benchmarks.
 
 <div align="center">
   <img src="asset/method.png" width=600" />
@@ -37,17 +46,18 @@
 
 ## Release
 
-- [05/25] Checkpoints are released.
-- [04/17] Our code is released.
+- **2024/05/25**: Checkpoints are released.
+- **2024/04/17**: Our code is released.
 
-We are developing ConvLLaVA-V2. If you are interested or you have great ideas, please feel free to email with me: [Chunjiang Ge](gecj20@mails.tsinghua.edu.cn).
+[![Collaborations](https://img.shields.io/badge/Welcome-Collaborations-b31b1b.svg)](mailto:gecj20@mails.tsinghua.edu.cn)
+If you are interested in Large Multimodal Models or you have great ideas, please feel free to email with me: [Chunjiang Ge](mailto:gecj20@mails.tsinghua.edu.cn).
 
 [![Code License](https://img.shields.io/badge/Code%20License-Apache_2.0-green.svg)](https://github.com/tatsu-lab/stanford_alpaca/blob/main/LICENSE)
 **Usage and License Notices**: This project utilizes certain datasets and checkpoints that are subject to their respective original licenses. Users must comply with all terms and conditions of these original licenses, including but not limited to the [OpenAI Terms of Use](https://openai.com/policies/terms-of-use) for the dataset and the specific licenses for base language models for checkpoints trained using the dataset (e.g. [Llama community license](https://ai.meta.com/llama/license/) for LLaMA-2 and Vicuna-v1.5). This project does not impose any additional constraints beyond those stipulated in the original licenses. Furthermore, users are reminded to ensure that their use of the dataset and checkpoints is in compliance with all applicable laws and regulations.
 
 
 ## Contents
-- [Overview](#overview)
+- [Abstract](#abstract)
 - [Release](#release)
 - [Contents](#contents)
 - [TODO](#todo)
@@ -76,15 +86,15 @@ cd conv-llava
 ```
 
 1. Install Package
-```Shell
-conda create -n convllava python=3.10 -y
+```bash
+conda create -n convllava python=3.11 -y
 conda activate convllava
 pip install --upgrade pip  # enable PEP 660 support
 pip install -e .
 ```
 
 3. Install additional packages for training cases
-```
+```bash
 pip install -e ".[train]"
 pip install flash-attn --no-build-isolation
 ```

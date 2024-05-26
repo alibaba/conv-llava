@@ -5,14 +5,14 @@ deepspeed llava/train/train.py \
     --model_name_or_path path_to_stage2_llm \
     --version v1 \
     --dataset "dataset_you_want_train" \
-    --vision_tower path_to_updated_convnext \
+    --vision_tower path_to_stage2_convnext \
     --mm_projector_type mlp2x_gelu \
     --mm_vision_resolution 768 \
     --mm_vision_select_layer -1 \
     --mm_use_im_start_end False \
     --mm_use_im_patch_token False \
     --bf16 True \
-    --output_dir ./checkpoints/convllava \
+    --output_dir ./checkpoints/convllava/stage3 \
     --num_train_epochs 1 \
     --per_device_train_batch_size 16 \
     --per_device_eval_batch_size 4 \

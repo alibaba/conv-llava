@@ -5,7 +5,7 @@ deepspeed llava/train/train.py \
     --model_name_or_path lmsys/vicuna-7b-v1.5 \
     --version v1 \
     --dataset "dataset_you_want_train" \
-    --vision_tower path_to_convnext \
+    --vision_tower path_to_original_convnext \
     --mm_vision_resolution 768 \
     --mm_projector_type mlp2x_gelu \
     --freeze_backbone True \
