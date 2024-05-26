@@ -1,4 +1,4 @@
-## Data
+# Data
 
 We use the following hyperparameters for training ConvLLaVA.
 
@@ -11,19 +11,19 @@ We use the following hyperparameters for training ConvLLaVA.
 | Weight Decay    | 0       | 0       | 0       |
 | Optimizer       | AdamW   | AdamW   | AdamW   |
 
-### Projector Initialzation
+## Projector Initialzation
 
 We use captions from ShareGPT4V-PT, ShareGPT4V, ALLAVA.
 
-### Vision Language Pretraining
+## Vision Language Pretraining
 
 We use ShareGPT4V-PT, ShareGPT4V, ALLAVA and a part of VFLAN.
 
-### Instrcution Tuning
+## Instrcution Tuning
 
 We use LLaVA-1.5 sft 665k dataset. We would update the results when LLaVA-NExT released.
 
-### Prepare Images
+## Prepare Images
 
 First, download all images and instrcution files.
 
@@ -128,7 +128,7 @@ folder_path = 'path_to_your_folder'
 convert_gif_to_jpg(folder_path)
 ```
 
-### Data Configuration
+## Data Configuration
 
 You could modify the file [data.py](conv-llava/llava/data/data_blending.py) to add the datasets. Replace with the true path:
 

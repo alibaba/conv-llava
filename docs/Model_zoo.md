@@ -155,6 +155,19 @@ The three stages training scripts are listed below:
 - Vision Language Pretraining: [stage2](https://github.com/alibaba/conv-llava/tree/main/scripts/stage_2.sh)
 - Instruction Tuning: [stage3](https://github.com/alibaba/conv-llava/tree/main/scripts/stage_3.sh)
 
+### Customize training
+
 If you want to custimze your model, you can directly load the **second stage pretrained visual encoder and LLM** for instruction tuning. It takes about 6 hours to train the 768 resolution model with LLaVA-Instruct-665k on 8 A800 GPUs.
 
+### Training from scratch
+
 If you wang to train from scratch, you could download our processed ConvNeXt model (modify from LAION ConvNeXt). Then follow the three stage training scripts to train the model.
+
+ConvNeXt: [huggingface](https://huggingface.co/ConvLLaVA/LAION-CLIP-ConvNeXt-Large-512), [modelscope](https://modelscope.cn/models/ConvLLaVA/LAION-CLIP-ConvNeXt-Large-512/summary)
+
+You need to modify the config from the folder to the resolution you want to train your model on:
+
+- config.json: image_size
+- preprocessor_config: size, crop_size
+
+Then load that weights and start training.

@@ -30,46 +30,40 @@ Jun Song, Shiji Song, [Gao Huang](https://www.gaohuang.net/), Bo Zheng
 
 ## 摘要
 
-高分辨率多模态大模型（LMM）面临视觉token过多和视觉平方复杂度的挑战。当前的高分辨率LMM通常能够解决二次复杂度问题，却忽视了视觉token中的冗余。由于过多的令牌导致显著的计算成本，这是一个更为根本的问题。为此，我们提出了ConvLLaVA，它采用层次化的主干网络ConvNeXt作为LMM的视觉编码器，以替代Vision Transformer（ViT）。**ConvLLaVA将高分辨率图像压缩成富含信息的视觉特征，有效避免了生成过多的视觉令牌**。为了增强ConvLLaVA的能力，我们提出了两项关键优化措施。
+高分辨率多模态大模型（LMM）面临视觉token过多和视觉平方复杂度的挑战。当前的高分辨率LMM通常能够解决二次复杂度问题，却会生成过量的视觉token。**然而，过多的视觉token才是更关键的问题，因为它会导致更显著的计算开销。** 为了解决这个问题，我们提出了ConvLLaVA，它采用层次化的主干网络ConvNeXt作为LMM的视觉编码器，以替代Vision Transformer（ViT）。**ConvLLaVA将高分辨率图像压缩成富含信息的视觉特征，有效避免了生成过多的视觉token。** 为了增强ConvLLaVA的能力，我们提出了两项关键优化措施。
 
-由于低分辨率预训练的ConvNeXt在直接应用于高分辨率时表现不佳，**我们更新它以弥合这一差距。**
+- 由于低分辨率预训练的ConvNeXt在直接应用于高分辨率时表现不佳，**我们更新它以弥合这一差距。**
+- 此外，由于ConvNeXt原有的压缩比对于更高分辨率的输入来说不足，**我们训练了一个新的stage，以进一步压缩视觉token**，有效减少冗余。
 
-此外，由于ConvNeXt原有的压缩比对于更高分辨率的输入来说不足，**我们训练了一个连续阶段，以进一步压缩视觉令牌**，有效减少冗余。
-
-**这些优化使得ConvLLaVA能够支持1536x1536分辨率的输入，同时仅生成576个视觉令牌，适应任意宽高比的图像。**[实验结果](#model-zoo)显示，我们的方法在主流基准测试上与最先进的模型相比取得了竞争性的性能。
+**这些优化使得ConvLLaVA能够支持1536x1536分辨率的输入，同时仅生成576个视觉token，并适应任意宽高比的图像。** [实验结果](#model-zoo)显示，我们的方法在主流基准测试上与最先进的模型相比取得了竞争性的性能。
 
 <div align="center">
   <img src="asset/method.png" width=600" />
 </div>
 <div align="center">
-  <figcaption>Comparison between LLaVA and ConvLLaVA.</figcaption>
+  <figcaption> LLaVA 和 ConvLLaVA 结构上的对比</figcaption>
 </div>
 
-## Release
-
-- **2024/05/25**: Checkpoints are released.
-- **2024/04/17**: Our code is released.
 
 [![Collaborations](https://img.shields.io/badge/Welcome-Collaborations-b31b1b.svg)](mailto:gecj20@mails.tsinghua.edu.cn)
-If you are interested in Large Multimodal Models or you have great ideas, please feel free to email with me: [Chunjiang Ge](mailto:gecj20@mails.tsinghua.edu.cn).
+如果你对多模态大模型感兴趣，或者你有很好的想法，请你联系我：[Chunjiang Ge](mailto:gecj20@mails.tsinghua.edu.cn).
 
 [![Code License](https://img.shields.io/badge/Code%20License-Apache_2.0-green.svg)](https://github.com/tatsu-lab/stanford_alpaca/blob/main/LICENSE)
 **Usage and License Notices**: This project utilizes certain datasets and checkpoints that are subject to their respective original licenses. Users must comply with all terms and conditions of these original licenses, including but not limited to the [OpenAI Terms of Use](https://openai.com/policies/terms-of-use) for the dataset and the specific licenses for base language models for checkpoints trained using the dataset (e.g. [Llama community license](https://ai.meta.com/llama/license/) for LLaMA-2 and Vicuna-v1.5). This project does not impose any additional constraints beyond those stipulated in the original licenses. Furthermore, users are reminded to ensure that their use of the dataset and checkpoints is in compliance with all applicable laws and regulations.
 
-## Contents
+## 内容
 - [摘要](#摘要)
-- [Release](#release)
-- [Contents](#contents)
-- [TODO](#todo)
-- [Install](#install)
-- [Model Zoo](#model-zoo)
-- [Dataset](#dataset)
-- [Train](#train)
-- [Evaluation](#evaluation)
-- [Citation](#citation)
-- [Acknowledgement](#acknowledgement)
+- [内容](#内容)
+- [计划](#计划)
+- [安装](#安装)
+- [模型库](#模型库)
+- [数据集](#数据集)
+- [训练](#训练)
+- [评测](#评测)
+- [引用](#引用)
+- [致谢](#致谢)
 
-## TODO
+## 计划
 
 - [ ] Add [LMMs-eval](https://github.com/EvolvingLMMs-Lab/lmms-eval) supports.
 - [ ] Add [VLMEvalKit](https://github.com/open-compass/VLMEvalKit) supports.
@@ -77,7 +71,7 @@ If you are interested in Large Multimodal Models or you have great ideas, please
 - [x] Release weights.
 - [ ] Release inference code.
 
-## Install
+## 安装
 
 1. Clone this repository and navigate to ConvLLaVA folder
 ```bash
@@ -99,9 +93,9 @@ pip install -e ".[train]"
 pip install flash-attn --no-build-isolation
 ```
 
-## Model Zoo
+## 模型库
 
-The performance on mainstream benchmarks are shown below:
+我们的模型的性能如下：
 
 <table class="tg"><thead>
   <tr>
@@ -236,15 +230,15 @@ The performance on mainstream benchmarks are shown below:
   </tr>
 </tbody></table>
 
-Please check out our [Model Zoo](https://github.com/alibaba/conv-llava/blob/main/docs/Model_zoo.md) for all public ConvLLaVA checkpoints, and the instructions of how to use the weights.
+我们的 [Model Zoo](https://github.com/alibaba/conv-llava/blob/main/docs/Model_zoo.md) 中包含了所有的checkpoint，并有说明如何使用这些权重。
 
-## Dataset
+## 数据集
 
-Data we use is introduded in [Data.md](https://github.com/alibaba/conv-llava/blob/main/docs/Data.md).
+我们实验用到的数据在 in [Data.md](https://github.com/alibaba/conv-llava/blob/main/docs/Data.md) 中有介绍。
 
-## Train
+## 训练
 
-We use the following hyperparameters for training ConvLLaVA.
+训练的超参数如下：
 
 | Hyperparameters | Stage 1 | Stage 2 | Stage 3 |
 | --------------- | ------- | ------- | ------- |
@@ -255,19 +249,19 @@ We use the following hyperparameters for training ConvLLaVA.
 | Weight Decay    | 0       | 0       | 0       |
 | Optimizer       | AdamW   | AdamW   | AdamW   |
 
-The training scripts are in the [scripts](https://github.com/alibaba/conv-llava/tree/main/scripts):
+训练脚本在文件夹 [scripts](https://github.com/alibaba/conv-llava/tree/main/scripts) 中:
 
 - Projector Initialzation: [stage1](https://github.com/alibaba/conv-llava/tree/main/scripts/stage_1.sh)
 - Vision Language Pretraining: [stage2](https://github.com/alibaba/conv-llava/tree/main/scripts/stage_2.sh)
 - Instruction Tuning: [stage3](https://github.com/alibaba/conv-llava/tree/main/scripts/stage_3.sh)
 
-## Evaluation
+## 评测
 
-We support [VLMEVALKIT](https://github.com/open-compass/VLMEvalKit) and [lmms-eval](https://github.com/EvolvingLMMs-Lab/lmms-eval) to evaluate our model now. See [Evaluation.md](https://github.com/alibaba/conv-llava/docs/Evaluation.md) for more details.
+我们目前支持 [VLMEVALKIT](https://github.com/open-compass/VLMEvalKit) 和 [lmms-eval](https://github.com/EvolvingLMMs-Lab/lmms-eval) 来测试模型。请看 [Evaluation.md](https://github.com/alibaba/conv-llava/docs/Evaluation.md) 了解更多细节.
 
-## Citation
+## 引用
 
-If you find LLaVA useful for your research and applications, please cite using this BibTeX:
+如果你认为我们的工作有所帮助，请你通过下面的 BibTeX 来引用我们的工作:
 
 ```bibtex
 @misc{ge2024convllava,
@@ -281,7 +275,7 @@ Encoder for Large Multimodal Models},
 }
 ```
 
-## Acknowledgement
+## 致谢
 
 - [Vicuna](https://github.com/lm-sys/FastChat): the codebase LLaVA built upon, and our base model Vicuna-13B that has the amazing language capabilities!
 - [LLaVA](https://github.com/haotian-liu/LLaVA): the codebase we built upon.
