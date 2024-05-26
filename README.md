@@ -13,10 +13,10 @@ Jun Song, Shiji Song, [Gao Huang](https://www.gaohuang.net/), Bo Zheng
         <img src="https://img.shields.io/badge/arXiv-2405.-b31b1b.svg">
     </a>
     <a href="https://huggingface.co/collections/ConvLLaVA/convllava-66519ef0ccdee62544bd19bf"> 
-        <img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-ffd21e">
+        <img src="https://img.shields.io/badge/🤗%20Hugging%20Face-Models-ffd21e">
     </a>
     <a href="https://modelscope.cn/organization/ConvLLaVA?tab=model"> 
-        <img src="https://img.shields.io/badge/ModelScope-Models-5f4cf2.svg">
+        <img src="https://img.shields.io/badge/🤖%20ModelScope-Models-5f4cf2.svg">
     </a>
     <a href="https://wisemodel.cn/organization/ConvLLaVA"> 
         <img src="https://img.shields.io/badge/WiseModel-Models-571282.svg">
@@ -26,7 +26,7 @@ Jun Song, Shiji Song, [Gao Huang](https://www.gaohuang.net/), Bo Zheng
     </a>
 </p>
 
-<!-- <span>[ English | <a href="README_zh.md">中文</a> ]</span> -->
+<span>[ English | <a href="README_zh.md">中文</a> ]</span>
 
 ## Abstract
 
@@ -54,7 +54,6 @@ If you are interested in Large Multimodal Models or you have great ideas, please
 
 [![Code License](https://img.shields.io/badge/Code%20License-Apache_2.0-green.svg)](https://github.com/tatsu-lab/stanford_alpaca/blob/main/LICENSE)
 **Usage and License Notices**: This project utilizes certain datasets and checkpoints that are subject to their respective original licenses. Users must comply with all terms and conditions of these original licenses, including but not limited to the [OpenAI Terms of Use](https://openai.com/policies/terms-of-use) for the dataset and the specific licenses for base language models for checkpoints trained using the dataset (e.g. [Llama community license](https://ai.meta.com/llama/license/) for LLaMA-2 and Vicuna-v1.5). This project does not impose any additional constraints beyond those stipulated in the original licenses. Furthermore, users are reminded to ensure that their use of the dataset and checkpoints is in compliance with all applicable laws and regulations.
-
 
 ## Contents
 - [Abstract](#abstract)
@@ -255,15 +254,15 @@ We use the following hyperparameters for training ConvLLaVA.
 | Weight Decay    | 0       | 0       | 0       |
 | Optimizer       | AdamW   | AdamW   | AdamW   |
 
-The training scripts are in the [scripts](conv-llava/scripts):
+The training scripts are in the [scripts](https://github.com/alibaba/conv-llava/tree/main/scripts):
 
-- Projector Initialzation: conv-llava/scripts/stage_1.sh
-- Vision Language Pretraining: conv-llava/scripts/stage_2.sh
-- Instruction Tuning: conv-llava/scripts/stage_3.sh
+- Projector Initialzation: [stage1](https://github.com/alibaba/conv-llava/tree/main/scripts/stage_1.sh)
+- Vision Language Pretraining: [stage2](https://github.com/alibaba/conv-llava/tree/main/scripts/stage_2.sh)
+- Instruction Tuning: [stage3](https://github.com/alibaba/conv-llava/tree/main/scripts/stage_3.sh)
 
 ## Evaluation
 
-We support [VLMEVALKIT](https://github.com/open-compass/VLMEvalKit) and [lmms-eval](https://github.com/EvolvingLMMs-Lab/lmms-eval) to evaluate our model now. See [Evaluation.md](conv-llava/docs/Evaluation.md) for more details.
+We support [VLMEVALKIT](https://github.com/open-compass/VLMEvalKit) and [lmms-eval](https://github.com/EvolvingLMMs-Lab/lmms-eval) to evaluate our model now. See [Evaluation.md](https://github.com/alibaba/conv-llava/docs/Evaluation.md) for more details.
 
 ## Citation
 

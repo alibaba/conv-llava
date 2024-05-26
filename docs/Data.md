@@ -1,5 +1,16 @@
 ## Data
 
+We use the following hyperparameters for training ConvLLaVA.
+
+| Hyperparameters | Stage 1 | Stage 2 | Stage 3 |
+| --------------- | ------- | ------- | ------- |
+| Learning Rate   | 3e-4    | 2e-5    | 2e-5    |
+| Batch Size      | 256     | 256     | 128     |
+| Epochs          | 1       | 1       | 1       |
+| Warmup Ratio    | 0.03    | 0.03    | 0.03    |
+| Weight Decay    | 0       | 0       | 0       |
+| Optimizer       | AdamW   | AdamW   | AdamW   |
+
 ### Projector Initialzation
 
 We use captions from ShareGPT4V-PT, ShareGPT4V, ALLAVA.
@@ -10,7 +21,7 @@ We use ShareGPT4V-PT, ShareGPT4V, ALLAVA and a part of VFLAN.
 
 ### Instrcution Tuning
 
-We use LLaVA-1.5 sft 665k dataset. We would release the results when LLaVA-NExT released.
+We use LLaVA-1.5 sft 665k dataset. We would update the results when LLaVA-NExT released.
 
 ### Prepare Images
 
@@ -71,6 +82,50 @@ ShareGPT4V
 │   ├── wikiart
 │   │   ├── images
 ├── ...
+```
+
+If you find download ocrvqa images slow. You could refer to this [issue](https://github.com/haotian-liu/LLaVA/issues/931).
+Use multiprocessing to speed up:
+
+```python
+import concurrent.futures
+def download_image(k):
+    ext = os.path.splitext(data[k]['imageURL'])[1]
+    outputFile = 'images/%s%s' % (k, ext)
+
+    # Only download the image if it doesn't exist
+    if not os.path.exists(outputFile):
+        ureq.urlretrieve(data[k]['imageURL'], outputFile)
+
+
+if download == 1:
+    # Create the directory if it doesn't exist
+    if not os.path.exists('./images'):
+        os.mkdir('./images')
+
+    # Create a thread pool and download the images in parallel
+    with concurrent.futures.ThreadPoolExecutor() as executor:
+        executor.map(download_image, data.keys())
+```
+
+For ocrvqa, some git images should be transfered to jpg. You could follow bwloe code:
+
+```python
+import os
+from PIL import Image
+
+def convert_gif_to_jpg(folder_path):
+    for filename in os.listdir(folder_path):
+        if filename.endswith('.gif'):
+            file_path = os.path.join(folder_path, filename)
+            with Image.open(file_path) as img:
+                jpg_filename = os.path.splitext(filename)[0] + '.jpg'  
+                jpg_path = os.path.join(folder_path, jpg_filename)
+                img.convert('RGB').save(jpg_path, 'JPEG', quality=95)
+                print(f'Converted {filename} to {jpg_filename}')
+
+folder_path = 'path_to_your_folder'
+convert_gif_to_jpg(folder_path)
 ```
 
 ### Data Configuration

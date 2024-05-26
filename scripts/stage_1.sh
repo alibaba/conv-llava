@@ -1,4 +1,5 @@
 #!/bin/bash
+# You may need to modify: model_name_or_path, dataset, vision_tower, output_dir
 
 deepspeed llava/train/train.py \
     --deepspeed ./scripts/zero2.json \

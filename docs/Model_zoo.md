@@ -144,3 +144,17 @@ We release checkpoints after vision language pretraining and visual instruction 
 | ConvLLaVA-768  | [pretrain](https://huggingface.co/ConvLLaVA/ConvLLaVA-pretrain-768), [sft](https://huggingface.co/ConvLLaVA/ConvLLaVA-sft-768)  |  [pretrain](https://modelscope.cn/models/ConvLLaVA/ConvLLaVA-pretrain-768/summary), [sft](https://modelscope.cn/models/ConvLLaVA/ConvLLaVA-sft-768/summary)  | [pretrain](https://wisemodel.cn/models/ConvLLaVA/ConvLLaVA-pretrain-768/intro), [sft](https://wisemodel.cn/models/ConvLLaVA/ConvLLaVA-sft-768/intro) |
 | ConvLLaVA-1024 | [pretrain](https://huggingface.co/ConvLLaVA/ConvLLaVA-pretrain-1024), [sft](https://huggingface.co/ConvLLaVA/ConvLLaVA-sft-1024) | [pretrain](https://modelscope.cn/models/ConvLLaVA/ConvLLaVA-pretrain-1024/summary), [sft](https://modelscope.cn/models/ConvLLaVA/ConvLLaVA-sft-1024/summary) | [pretrain](https://wisemodel.cn/models/ConvLLaVA/ConvLLaVA-pretrain-1024/intro), [sft](https://wisemodel.cn/models/ConvLLaVA/ConvLLaVA-sft-1024/intro) |
 | ConvLLaVA-1536 | [pretrain](https://huggingface.co/ConvLLaVA/ConvLLaVA-pretrain-1536), [sft](https://huggingface.co/ConvLLaVA/ConvLLaVA-sft-1536) | [pretrain](https://modelscope.cn/models/ConvLLaVA/ConvLLaVA-pretrain-1536/summary), [sft](https://modelscope.cn/models/ConvLLaVA/ConvLLaVA-sft-1536/summary) | [pretrain](https://wisemodel.cn/models/ConvLLaVA/ConvLLaVA-pretrain-1536/intro), [sft](https://wisemodel.cn/models/ConvLLaVA/ConvLLaVA-sft-1536/intro) |
+
+The **pretrain** above means the checkpoints are after the second stage **vision-language pretraining**. The **sft** above means the checkpoints are after the third stage **instruction tuning**.
+
+## Usage of the scripts
+
+The three stages training scripts are listed below:
+
+- Projector Initialzation: [stage1](https://github.com/alibaba/conv-llava/tree/main/scripts/stage_1.sh)
+- Vision Language Pretraining: [stage2](https://github.com/alibaba/conv-llava/tree/main/scripts/stage_2.sh)
+- Instruction Tuning: [stage3](https://github.com/alibaba/conv-llava/tree/main/scripts/stage_3.sh)
+
+If you want to custimze your model, you can directly load the **second stage pretrained visual encoder and LLM** for instruction tuning. It takes about 6 hours to train the 768 resolution model with LLaVA-Instruct-665k on 8 A800 GPUs.
+
+If you wang to train from scratch, you could download our processed ConvNeXt model (modify from LAION ConvNeXt). Then follow the three stage training scripts to train the model.
