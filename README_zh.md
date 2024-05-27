@@ -9,8 +9,8 @@ Jun Song, Shiji Song, [Gao Huang](https://www.gaohuang.net/), Bo Zheng
 </div>
 
 <p align="center">
-    <a href="https://arxiv.org/abs/"> 
-        <img src="https://img.shields.io/badge/arXiv-2405.-b31b1b.svg">
+    <a href="http://arxiv.org/abs/2405.15738"> 
+        <img src="https://img.shields.io/badge/arXiv-2405.15738-b31b1b.svg">
     </a>
     <a href="https://huggingface.co/collections/ConvLLaVA/convllava-66519ef0ccdee62544bd19bf"> 
         <img src="https://img.shields.io/badge/🤗%20Hugging%20Face-Models-ffd21e">
@@ -271,7 +271,7 @@ Encoder for Large Multimodal Models},
     archivePrefix={arXiv},
     primaryClass={cs.CV}
     year={2024}
-    eprint={},
+    eprint={2045.15738},
 }
 ```
 
