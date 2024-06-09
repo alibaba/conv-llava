@@ -59,7 +59,7 @@ If you are interested in Large Multimodal Models or you have great ideas, please
 **Usage and License Notices**: This project utilizes certain datasets and checkpoints that are subject to their respective original licenses. Users must comply with all terms and conditions of these original licenses, including but not limited to the [OpenAI Terms of Use](https://openai.com/policies/terms-of-use) for the dataset and the specific licenses for base language models for checkpoints trained using the dataset (e.g. [Llama community license](https://ai.meta.com/llama/license/) for LLaMA-2 and Vicuna-v1.5). This project does not impose any additional constraints beyond those stipulated in the original licenses. Furthermore, users are reminded to ensure that their use of the dataset and checkpoints is in compliance with all applicable laws and regulations.
 
 ## Contents
-- [Abstract :bulb:](#abstract-bulb)
+- [Abstract](#abstract)
 - [Release :loudspeaker:](#release-loudspeaker)
 - [Contents](#contents)
 - [TODO](#todo)
