@@ -10,7 +10,7 @@ Jun Song, Shiji Song, [Gao Huang](https://www.gaohuang.net/), Bo Zheng
 
 <p align="center">
     <a href="http://arxiv.org/abs/2405.15738"> 
-        <img src="https://img.shields.io/badge/arXiv-2405.15738-b31b1b.svg">
+        <img src="https://img.shields.io/badge/arXiv-2405.15738-b31b1b.svg?logo=arXiv">
     </a>
     <a href="https://huggingface.co/collections/ConvLLaVA/convllava-66519ef0ccdee62544bd19bf"> 
         <img src="https://img.shields.io/badge/🤗%20Hugging%20Face-Models-ffd21e">
@@ -21,6 +21,9 @@ Jun Song, Shiji Song, [Gao Huang](https://www.gaohuang.net/), Bo Zheng
     <a href="https://wisemodel.cn/organization/ConvLLaVA"> 
         <img src="https://img.shields.io/badge/WiseModel-Models-571282.svg">
     </a>
+    <a href="https://github.com/alibaba/conv-llava/blob/main/asset/WeChat.jpg"> 
+        <img src="https://img.shields.io/badge/WeChat-Group-5ef27f.svg">
+    </a>
     <a href="https://github.com/alibaba/conv-llava/stargazers">
         <img alt="GitHub stars" src="https://img.shields.io/github/stars/alibaba/conv-llava?color=ccf" />
     </a>
@@ -28,7 +31,7 @@ Jun Song, Shiji Song, [Gao Huang](https://www.gaohuang.net/), Bo Zheng
 
 <span>[ <a href="README.md"> English </a> | 中文 ]</span>
 
-## 摘要
+## 摘要 :bulb:
 
 高分辨率多模态大模型（LMM）面临视觉token过多和视觉平方复杂度的挑战。当前的高分辨率LMM通常能够解决二次复杂度问题，却会生成过量的视觉token。**然而，过多的视觉token才是更关键的问题，因为它会导致更显著的计算开销。** 为了解决这个问题，我们提出了ConvLLaVA，它采用层次化的主干网络ConvNeXt作为LMM的视觉编码器，以替代Vision Transformer（ViT）。**ConvLLaVA将高分辨率图像压缩成富含信息的视觉特征，有效避免了生成过多的视觉token。** 为了增强ConvLLaVA的能力，我们提出了两项关键优化措施。
 
@@ -52,7 +55,7 @@ Jun Song, Shiji Song, [Gao Huang](https://www.gaohuang.net/), Bo Zheng
 **Usage and License Notices**: This project utilizes certain datasets and checkpoints that are subject to their respective original licenses. Users must comply with all terms and conditions of these original licenses, including but not limited to the [OpenAI Terms of Use](https://openai.com/policies/terms-of-use) for the dataset and the specific licenses for base language models for checkpoints trained using the dataset (e.g. [Llama community license](https://ai.meta.com/llama/license/) for LLaMA-2 and Vicuna-v1.5). This project does not impose any additional constraints beyond those stipulated in the original licenses. Furthermore, users are reminded to ensure that their use of the dataset and checkpoints is in compliance with all applicable laws and regulations.
 
 ## 内容
-- [摘要](#摘要)
+- [摘要 :bulb:](#摘要-bulb)
 - [内容](#内容)
 - [计划](#计划)
 - [安装](#安装)

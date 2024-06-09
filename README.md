@@ -10,7 +10,7 @@ Jun Song, Shiji Song, [Gao Huang](https://www.gaohuang.net/), Bo Zheng
 
 <p align="center">
     <a href="http://arxiv.org/abs/2405.15738"> 
-        <img src="https://img.shields.io/badge/arXiv-2405.15738-b31b1b.svg">
+        <img src="https://img.shields.io/badge/arXiv-2405.15738-b31b1b.svg?logo=arXiv">
     </a>
     <a href="https://huggingface.co/collections/ConvLLaVA/convllava-66519ef0ccdee62544bd19bf"> 
         <img src="https://img.shields.io/badge/🤗%20Hugging%20Face-Models-ffd21e">
@@ -47,7 +47,7 @@ High-resolution Large Multimodel Models (LMM) encounter the challenges of excess
   <figcaption>Comparison between LLaVA and ConvLLaVA.</figcaption>
 </div>
 
-## Release
+## Release :loudspeaker:
 
 - **2024/05/25**: Checkpoints are released.
 - **2024/04/17**: Our code is released.
@@ -59,8 +59,8 @@ If you are interested in Large Multimodal Models or you have great ideas, please
 **Usage and License Notices**: This project utilizes certain datasets and checkpoints that are subject to their respective original licenses. Users must comply with all terms and conditions of these original licenses, including but not limited to the [OpenAI Terms of Use](https://openai.com/policies/terms-of-use) for the dataset and the specific licenses for base language models for checkpoints trained using the dataset (e.g. [Llama community license](https://ai.meta.com/llama/license/) for LLaMA-2 and Vicuna-v1.5). This project does not impose any additional constraints beyond those stipulated in the original licenses. Furthermore, users are reminded to ensure that their use of the dataset and checkpoints is in compliance with all applicable laws and regulations.
 
 ## Contents
-- [Abstract](#abstract)
-- [Release](#release)
+- [Abstract :bulb:](#abstract-bulb)
+- [Release :loudspeaker:](#release-loudspeaker)
 - [Contents](#contents)
 - [TODO](#todo)
 - [Install](#install)
