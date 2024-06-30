@@ -28,3 +28,8 @@ pip install -e .
 ```
 
 You should use the file [eval-lmms.sh](conv-llava/llava/eval/eval-lmms.sh) to evaluate the model. You could modify the parameters for evaluating different benchmarks.
+
+
+## RefCOCO
+
+If you are interested in RefCOCO, we provide the code in  [refcoco.sh](scripts/refcoco.sh). 
