@@ -40,6 +40,7 @@ from llava import conversation as conversation_lib
 from llava.model import *
 from llava.model.multimodal_encoder.clip_encoder import CLIPVisionTower
 from llava.model.multimodal_encoder.convnext_encoder import ConvNeXtCLIPVisionTower
+from llava.model.multimodal_encoder.lknet_encoder import LKNetCLIPVisionTower
 from llava.mm_utils import tokenizer_image_token
 
 
@@ -306,6 +307,9 @@ def unlock_vit(training_args, model_args, vision_tower):
         rank0_print(
             f'Tune the vision tower from layer {model_args.tune_vit_from_layer}!')
     if isinstance(vision_tower, ConvNeXtCLIPVisionTower):
+        vision_tower.make_layers_trainable_after_stage(
+            model_args.tune_vit_from_layer)
+    elif isinstance(vision_tower, LKNetCLIPVisionTower):
         vision_tower.make_layers_trainable_after_stage(
             model_args.tune_vit_from_layer)
     elif isinstance(vision_tower, CLIPVisionTower):

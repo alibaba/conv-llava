@@ -2,6 +2,7 @@ import os
 from .clip_encoder import CLIPVisionTower
 from .convnext_encoder import ConvNeXtCLIPVisionTower
 from .siglip_encoder import SiglipVisionTower
+from .lknet_encoder import LKNetCLIPVisionTower
 
 
 def build_vision_tower(vision_tower_cfg, **kwargs):
@@ -16,5 +17,7 @@ def build_vision_tower(vision_tower_cfg, **kwargs):
     if 'convnext' in vision_tower:
         print(f'building ConvNeXtCLIPVisionTower')
         return ConvNeXtCLIPVisionTower(vision_tower, args=vision_tower_cfg, **kwargs)
+    if 'lknet' in vision_tower.lower():
+        print(f'building lknet')
+        return LKNetCLIPVisionTower(vision_tower, args=vision_tower_cfg, **kwargs)
     return ConvNeXtCLIPVisionTower(vision_tower, args=vision_tower_cfg, **kwargs)
-
