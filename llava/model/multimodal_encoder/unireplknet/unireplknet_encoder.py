@@ -1096,20 +1096,3 @@ def unireplknet_h(in_22k_pretrained=False, in_22k_to_1k=False, **kwargs):
     )
     return model
 
-
-if __name__ == "__main__":
-    model_large = unireplknet_l_plus()
-    print(model_large)
-    ckpt = torch.load(
-        "/mnt/thuair/gcjtcl/models/public/model/CLIP-UniRepLKNet-L-laion5B-s10B-b75k/UniRepLKNet-L-b75k_s10B_CLIP-in1k_75.72.pt"
-    )
-    # print(ckpt.keys())
-    del ckpt['norm.weight']
-    del ckpt['norm.bias']
-    # del ckpt['head.weight']
-    # del ckpt['head.bias']
-    missing_keys, unexpected_keys = model_large.load_state_dict(
-        ckpt, strict=False
-    )  # Since we do not need heads in CLIP pretraining.
-    print("Loaded CLIP Pretrained Models")
-    print(f"missing keys are {missing_keys}\n unexpected keys are {unexpected_keys}")
