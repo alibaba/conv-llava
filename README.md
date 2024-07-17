@@ -21,7 +21,7 @@ Jun Song, Shiji Song, [Gao Huang](https://www.gaohuang.net/), Bo Zheng
     <a href="https://wisemodel.cn/organization/ConvLLaVA"> 
         <img src="https://img.shields.io/badge/WiseModel-Models-571282.svg">
     </a>
-    <a href="https://github.com/alibaba/conv-llava/blob/main/asset/WeChat.jpg"> 
+    <a href="https://github.com/alibaba/conv-llava/blob/main/asset/WeChat.png"> 
         <img src="https://img.shields.io/badge/WeChat-Group-5ef27f.svg">
     </a>
     <a href="https://github.com/alibaba/conv-llava/stargazers">
