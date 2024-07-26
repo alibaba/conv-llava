@@ -49,6 +49,11 @@ IS_TOKENIZER_GREATER_THAN_0_14 = version.parse(
     tokenizers.__version__) >= version.parse('0.14')
 
 
+def read_jsonl(path):
+    with open(path, 'r') as f:
+        return [json.loads(line) for line in f]
+
+
 def decode_tokens(tokenizer, token_sequences, tokens_to_skip):
     # Decode each sublist in the lists, include original IDs for tokens that cannot be decoded
     decoded_sequences = [

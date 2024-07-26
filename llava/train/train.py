@@ -14,7 +14,6 @@
 #    See the License for the specific language governing permissions and
 #    limitations under the License.
 
-from llava.data.data import make_supervised_data_module
 from packaging import version
 import os
 import copy
@@ -42,6 +41,7 @@ from llava.model.multimodal_encoder.clip_encoder import CLIPVisionTower
 from llava.model.multimodal_encoder.convnext_encoder import ConvNeXtCLIPVisionTower
 from llava.model.multimodal_encoder.lknet_encoder import LKNetCLIPVisionTower
 from llava.mm_utils import tokenizer_image_token
+from llava.data.data import make_supervised_data_module
 
 
 local_rank = None

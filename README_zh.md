@@ -15,6 +15,9 @@ Jun Song, Shiji Song, [Gao Huang](https://www.gaohuang.net/), Bo Zheng
     <a href="https://huggingface.co/collections/ConvLLaVA/convllava-66519ef0ccdee62544bd19bf"> 
         <img src="https://img.shields.io/badge/🤗%20Hugging%20Face-Models-ffd21e">
     </a>
+    <a href="https://huggingface.co/papers/2405.15738"> 
+        <img src="https://img.shields.io/badge/🤗%20Hugging%20Face-Paper-ffd21e">
+    </a>
     <a href="https://modelscope.cn/organization/ConvLLaVA?tab=model"> 
         <img src="https://img.shields.io/badge/🤖%20ModelScope-Models-5f4cf2.svg">
     </a>
