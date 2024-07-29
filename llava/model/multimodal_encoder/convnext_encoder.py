@@ -62,8 +62,8 @@ class ConvNeXtCLIPVisionTower(nn.Module):
                 image_feature = self.vision_tower.encoder(embedding_output,
                                                         output_hidden_states=True,
                                                         return_dict=True)
-                image_features = image_features.hidden_states[-1].permute(0, 2, 3, 1)
-                image_features = image_features.reshape(image_features.shape[0], -1, image_features.shape[3]).to(images.dtype)
+                image_feature = image_feature.hidden_states[-1].permute(0, 2, 3, 1)
+                image_feature = image_feature.reshape(image_features.shape[0], -1, image_features.shape[3]).to(images.dtype)
 
                 image_features.append(image_feature)
         else:
